@@ -75,7 +75,7 @@ int process_stream(WordCountEntry entries[], int entry_count)
 }
 
 
-void print_result(WordCountEntry entries[], int entry_count)
+void print_result(FILE *output, WordCountEntry entries[], int entry_count)
 {
     /* B5: introduce a temporary variable i and use it to count up from 0 */
     int i = 0;
@@ -108,7 +108,7 @@ int main(int argc, char **argv)
   /* C2: create a variable to store the output stream to use, stdout by default 
         Hint: use the FILE data type and understand the stdout and stderr output streams*/
   // FILE *output = ?? // Complete this stream variable definition (Note: this will not be a file)
-  FILE* output = stdout;
+  FILE *output = stdout;
   /* Entry point for the testrunner program */
   if (argc > 1 && !strcmp(argv[1], "-test")) {
     run_smp0_tests(argc - 1, argv + 1);
@@ -129,7 +129,7 @@ int main(int argc, char **argv)
              stream */
 
       case 'f':
-          freopen((*argv + 2), "w", output))
+          freopen((*argv + 2), "w", output);
           break;
         /* B3: fix the logical flow error in the switch*/
         case 'h':
@@ -156,13 +156,13 @@ int main(int argc, char **argv)
 
   /* C2: send output to the right stream */
   if (entryCount == 1) {
-    fprintf("Looking for a single word\n");
+    fprintf(output,"Looking for a single word\n");
   } else {
-    fprintf("Looking for %d words\n", entryCount);
+    fprintf(output,"Looking for %d words\n", entryCount);
   }
 
   process_stream(entries, entryCount);
-  print_result(entries, entryCount);
+  print_result(output,entries, entryCount);
 
   // FREE MEMORY, CLOSE FILES, STREAMS, etc.
 
