@@ -11,7 +11,9 @@ int main(int argc, char *argv[])
 }
 
 Why is the above code incorrect (i.e., likely to crash)?
-
+The isue in this code is the argv[0] sincin is coping in a location temp. 
+witch is not initialised so it will be usually located in garbage location 
+meaning it will crash usually in some run times.
 
 2) Consider the following C program.
 #include <string.h>
@@ -24,6 +26,10 @@ int main(int argc, char *argv[])
 
 A buffer overflow occurs when the program name is 9 characters long
 (e.g., "12345.exe"). Why?
+Once we copy the 9th charachter at a location that temp then the 9th 
+charatcter is copied at 9 position of the array of course the null
+charater will e copied at the 10 postion of the array witch is
+not allocated so it will cause a overflow.
 
 
 3) Consider the following C program.
@@ -36,6 +42,8 @@ int main(int argc, char *argv[])
 }
 
 Why does this program crash?
+we are overwritting the content of buffer that is 
+already initalised by the constatn memroy content 
 
 
 4) Consider the following C snippet.
@@ -47,7 +55,8 @@ void myfunc()
 }
 
 Is this correct?  What's a simpler expression for &b[0]?
-
+It is correct it dies cpyes the Wolrld with null character
+at the end inside the array b
 
 5) Consider the following C program.
 #include <stdio.h>
@@ -60,6 +69,7 @@ int main(int argc, char* argv[])
 If this code is executed using the following line, what will be the output?
 > program1 -n5 abc
 
+The output answer will be program 5abc
 
 6) Consider the following C program.
 #include <stdio.h>
@@ -78,3 +88,7 @@ int main(int argc, char *argv[])
 
 What's wrong with this?
 
+it is wrong beacuse of buffer return by the function 
+that does not exit as the function also returns.because 
+of this it willhold the location even do it dosen't
+exists after returning from the function

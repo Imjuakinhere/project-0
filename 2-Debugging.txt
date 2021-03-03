@@ -6,18 +6,40 @@ Understanding the code
   1) Explain why this program uses the exclamation operator with the
      strcmp() function.
 
+	strcmp() all it does is compares 2 string in the parameters.
+	as for !strcmp() is used to return a interger number such as 0 or 1.
+	If its 1 means both strings are = or if its a 0 then is means it's NOT =.
+
   2) Explain why the 'LENGTH' macro returns the length of an array.
      Would it work with a pointer to a dynamically allocated array? (Hint:
      understand sizeof).
 
+	'LENGTH' is designed to find the length of any array in C language.
+	As for the numerator it will be sizeof(s).it will multiply the size 
+	of the arrya in bytes depending on the length of the array. 
+	The denominator determind the size od the first element of the 
+	array and muliplies it by the byte size.Then by deviding both 
+	together it will only then give you the length of the array.
+	
 Bug hunting
 
   3) Explain and fix the logical flow bug within the switch statement.
      (What happens when the -h option is used?)
+	
+	The Swith statement with display one of two thing in the 
+	print from case'h' or what ever set to default. If inputed 
+	'h' is used he it will display both 'h' and default case 
+	becasue there is no 'break' in the 'h' case it self. just 
+	by applying the break code will fix the problem by only 
+	diplaying case 'h'.
 
   4) Explain and fix the argument parsing error. (Why is entrycount never
      zero?)
-
+	entryCounter will never be zero because it keeps increments. 
+	for example even if no argument it's made it will still will never be zero
+	
   5) Fix print_result() to print results correctly and in the same order
      as the words were specified on the command line.  Explain your solution.
-
+	By implementing a variable such as i and initilizing it to 0 and use it
+ 	to cycle through the array will fix it so that it will pring the words
+	 the corect way 
