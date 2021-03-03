@@ -136,7 +136,7 @@ int main(int argc, char **argv)
           printHelp(prog_name);
           break;
         default:
-          printf(stderr,"%s: Invalid option %s. Use -h for help.\n",
+          fprintf(stderr,"%s: Invalid option %s. Use -h for help.\n",
                  prog_name, *argv);
       }
     } else {
@@ -149,7 +149,7 @@ int main(int argc, char **argv)
     argv++;
   }
   if (entryCount == 0) {
-    printf(stderr, "%s: Please supply at least one word. Use -h for help.\n",
+    fprintf(stderr, "%s: Please supply at least one word. Use -h for help.\n",
            prog_name);
     return EXIT_FAILURE;
   }
